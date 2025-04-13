@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace PryLoprestiConexionBD
 {
-    public partial class Form1 : Form
+    public partial class frmInicio : Form
     {
-        public Form1()
+        public frmInicio()
         {
             InitializeComponent();
+        }
+        clsConexionBDV conexion = new clsConexionBDV();
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+            conexion.ConectarBD();
         }
     }
 }
