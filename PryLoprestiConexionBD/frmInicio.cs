@@ -21,5 +21,9 @@ namespace PryLoprestiConexionBD
         {
             conexion.MostrarDatos(dgvConexion);
         }
+
+ 
+
+
     }
 }
