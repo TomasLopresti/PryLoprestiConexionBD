@@ -13,7 +13,7 @@ namespace PryLoprestiConexionBD
     internal class clsConexionBDV
     {
         //cadena de conexion
-        string cadenaConexion = "Server=localhost;Database=Ventas2;Trusted_Connection=True;";
+        string cadenaConexion = "Server=localhost;Database=Comercio;Trusted_Connection=True;";
 
         //conector
         SqlConnection conexionBaseDatos;
@@ -47,9 +47,9 @@ namespace PryLoprestiConexionBD
         {
             try
             {
-                ConectarBD(); 
+                ConectarBD();
 
-                string query = "SELECT * FROM Comercio";
+                string query = "SELECT * FROM Contactos";
                 comandoBaseDatos = new SqlCommand(query, conexionBaseDatos);
 
                 //Crear un DataTable
