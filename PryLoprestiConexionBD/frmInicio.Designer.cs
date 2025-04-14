@@ -28,23 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dgvConexion = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConexion)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgvConexion
+            // 
+            this.dgvConexion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConexion.Location = new System.Drawing.Point(12, 12);
+            this.dgvConexion.Name = "dgvConexion";
+            this.dgvConexion.Size = new System.Drawing.Size(746, 410);
+            this.dgvConexion.TabIndex = 0;
             // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(770, 450);
+            this.Controls.Add(this.dgvConexion);
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conexion a Base de Datos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmInicio_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConexion)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvConexion;
     }
 }
 

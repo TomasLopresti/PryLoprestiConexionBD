@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace PryLoprestiConexionBD
 {
@@ -14,7 +16,7 @@ namespace PryLoprestiConexionBD
         string cadenaConexion = "Server=localhost;Database=Ventas2;Trusted_Connection=True;";
 
         //conector
-        SqlConnection coneccionBaseDatos;
+        SqlConnection conexionBaseDatos;
 
         //comando
         SqlCommand comandoBaseDatos;
@@ -26,11 +28,11 @@ namespace PryLoprestiConexionBD
         {
             try
             {
-                coneccionBaseDatos = new SqlConnection(cadenaConexion);
+                conexionBaseDatos = new SqlConnection(cadenaConexion);
 
-                nombreBaseDeDatos = coneccionBaseDatos.Database;
+                nombreBaseDeDatos = conexionBaseDatos.Database;
 
-                coneccionBaseDatos.Open();
+                conexionBaseDatos.Open();
 
                 MessageBox.Show("Conectado a " + nombreBaseDeDatos);
             }
@@ -39,6 +41,36 @@ namespace PryLoprestiConexionBD
                 MessageBox.Show("Tiene un errorcito - " + error.Message);
             }
 
+        }
+
+        public void MostrarDatos(DataGridView dgv)
+        {
+            try
+            {
+                ConectarBD(); 
+
+                string query = "SELECT * FROM Comercio";
+                comandoBaseDatos = new SqlCommand(query, conexionBaseDatos);
+
+                //Crear un DataTable
+                DataTable productos = new DataTable();
+
+                //Llenar el DataTable
+                using (SqlDataReader reader = comandoBaseDatos.ExecuteReader())
+                {
+                    productos.Load(reader);
+                }
+                //Mostrar en grilla
+                dgv.DataSource = productos;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Tiene un errorcito - " + error.Message);
+            }
+            finally
+            {
+                conexionBaseDatos.Close();
+            }
         }
     }
 }

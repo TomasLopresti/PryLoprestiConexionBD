@@ -19,7 +19,7 @@ namespace PryLoprestiConexionBD
         clsConexionBDV conexion = new clsConexionBDV();
         private void frmInicio_Load(object sender, EventArgs e)
         {
-            conexion.ConectarBD();
+            conexion.MostrarDatos(dgvConexion);
         }
     }
 }
